@@ -1,7 +1,7 @@
 global proxy_detect_table :table[addr] of set[string] = table();
 
 
-event http_header (c: connection, is_orig: bool, original_name: string, name: string, value: string){
+event http_header (c: connection, is_orig: bool, name: string, value: string){
 	if(c$http?$user_agent){
 		local src_ip=c$id$orig_h;
 		local user_agent=to_lower(c$http$user_agent);
